@@ -66,7 +66,7 @@ HEADER
 
 			<div class="col-md-4 order-1 order-md-12">
 				<div class="d-md-flex align-items-center p-1 justify-content-center ">
-					<form class="border rounded p-5 bg-success">
+					<form class="border rounded p-5 bg-success" id="formBlock">
 						<h3 class="mb-4 text-center">Send Your Enquiry</h3>
 						<div class="form-group">
 							<input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required="">
@@ -81,10 +81,16 @@ HEADER
 							<input type="text" class="form-control" id="company" name="company" placeholder="Company name" required="">
 						</div>
 						<!-- <div class="form-group">
+
 							<textarea class="form-control" rows="5" id="message" name="message" placeholder="Your message" required=""></textarea>
 						</div> -->
 
 						<button type="submit" class="btn btn-warning btn-round btn-block shadow-sm">Send Now</button>
+						<div id="thankyouBlock" style="display:none" class="bg-success">
+	<p>
+		Thank you for filling out the form. I care a lot about it.
+	</p>
+</div>
 					</form>
 				</div>
 			</div>
@@ -420,6 +426,46 @@ AOS.init({
     var maxWidth = 1200;
     return window.innerWidth < maxWidth;
   }
+});
+
+$(document).ready(function() {
+
+	$('#formBlock').on('submit', function(e) {
+		e.preventDefault();
+
+		//get the name field value
+		var name = $('#name').val();
+		//get the name field value
+		var email = $('#email').val();
+		//get the comments
+		var phone = $('#phone').val();
+		var company = $('#company').val();
+
+		//pretend we don't need validation
+
+		//send to formspree
+		$.ajax({
+			url:'https://formspree.io/imdurgeshgupta@gmail.com',
+			method:'POST',
+			data:{
+				name:name,
+				_replyto:email,
+				 email:email,
+				phone:phone,
+				company:company,
+				_subject:'Beemed Landing Page Submission',
+			},
+			dataType:"json",
+			success:function() {
+				console.log('success');
+				$('#formBlock').hide();
+				$('#thankyouBlock').show();
+			}
+
+		});
+
+	});
+
 });
 </script>
 
