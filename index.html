@@ -67,7 +67,6 @@ HEADER
 			<div class="col-md-4 order-1 order-md-12">
 				<div class="d-md-flex align-items-center p-1 justify-content-center ">
 					<!-- <form class="border rounded p-5 bg-success" id="formBlock1" action="https://formspree.io/imdurgeshgupta@gmail.com" method="POST"> -->
-					<!-- <form class="border rounded p-5 bg-success" id="formBlock"> -->
 					<form class="border rounded p-5 bg-success" id="formSubmit">
 						<h3 class="mb-4 text-center">Send Your Enquiry</h3>
 						<div class="form-group">
@@ -447,7 +446,7 @@ $(document).ready(function() {
 
 		//send to formspree
 		$.ajax({
-			url:'https://formspree.io/f08c542864949541c69e1ee41f866357',
+			url:'https://formspree.io/imdurgeshgupta@gmail.com',
 			method:'POST',
 			data:{
 				name:name,
@@ -469,28 +468,7 @@ $(document).ready(function() {
 	});
 
 });
-$(document).ready(function() {
 
-	$('#formSubmit').on('submit', function(e) {
-		e.preventDefault();
-		//send to formspree
-		$.ajax({
-			url:'https://formspree.io/f08c542864949541c69e1ee41f866357',
-			method:'POST',
-			 data: {message: "hello!"},
-			dataType:"json",
-			success:function() {
-				console.log('success');
-				$('#formBlock').hide();
-				$('#thankyouBlock').show();
-			}
-
-		});
-
-	});
-
-});
-</script>
 
 </body>
 </html>
