@@ -477,14 +477,7 @@ $(document).ready(function() {
 		$.ajax({
 			url:'https://formspree.io/f08c542864949541c69e1ee41f866357',
 			method:'POST',
-			data:{
-				name:'name',
-				_replyto:'imdurgeshgupta@gmail.com',
-				 email:'imdurgeshgupta@gmail.com',
-				phone:'9910099645',
-				company:'Company',
-				_subject:'Beemed Landing Page Submission',
-			},
+			 data: {message: "hello!"},
 			dataType:"json",
 			success:function() {
 				console.log('success');
